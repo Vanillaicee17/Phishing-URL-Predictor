@@ -1,0 +1,11 @@
+# Virtual Environment
+myenv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# If you want to be more specific about the virtual environment:
+# myenv/*
+# !myenv/.gitkeep
