@@ -1,0 +1,24 @@
+{
+    "name": "Catch-A-Phish",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "webRequest"
+    ],
+    "host_permissions": [
+        "http://localhost:8000/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Catch-A-Phish"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'; connect-src http://localhost:8000/"
+    }
+}
