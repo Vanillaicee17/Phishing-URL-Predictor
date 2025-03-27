@@ -3,8 +3,17 @@ from pydantic import BaseModel, HttpUrl
 import joblib
 import pandas as pd
 from url_extractor import extractor
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (change this for production)
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
+)
 
 # Load the pre-trained model
 model = joblib.load(r"C:\Users\ameys\Desktop\Projects\Phishing URL Predictor\saved_models\xgb_model.pkl")

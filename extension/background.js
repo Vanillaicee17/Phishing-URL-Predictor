@@ -1,6 +1,7 @@
 // background.js
 
 async function sendUrlToBackend(url) {
+    console.log(url)
     try {
         if (!isValidUrl(url)) {
             throw new Error("Invalid URL");
@@ -25,7 +26,7 @@ async function sendUrlToBackend(url) {
             throw new Error("Unexpected response format");
         }
     } catch (error) {
-        console.error("Error sending URL:", error);
+        console.log("Error sending URL:", error);
         chrome.runtime.sendMessage({ type: "error", message: error.message });
     }
 }
@@ -46,7 +47,7 @@ async function checkActiveTab() {
             sendUrlToBackend(tab.url);
         }
     } catch (error) {
-        console.error("Error checking active tab:", error);
+        console.log("Error checking active tab:", error);
     }
 }
 
