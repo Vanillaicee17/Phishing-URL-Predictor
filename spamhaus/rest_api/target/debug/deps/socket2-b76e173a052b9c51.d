@@ -1,0 +1,11 @@
+C:\Users\ameys\Desktop\Projects\Phishing URL Predictor\spamhaus\rest_api\target\debug\deps\libsocket2-b76e173a052b9c51.rmeta: C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\lib.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sockaddr.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\socket.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sockref.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sys\windows.rs
+
+C:\Users\ameys\Desktop\Projects\Phishing URL Predictor\spamhaus\rest_api\target\debug\deps\libsocket2-b76e173a052b9c51.rlib: C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\lib.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sockaddr.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\socket.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sockref.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sys\windows.rs
+
+C:\Users\ameys\Desktop\Projects\Phishing URL Predictor\spamhaus\rest_api\target\debug\deps\socket2-b76e173a052b9c51.d: C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\lib.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sockaddr.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\socket.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sockref.rs C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sys\windows.rs
+
+C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\lib.rs:
+C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sockaddr.rs:
+C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\socket.rs:
+C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sockref.rs:
+C:\Users\ameys\.cargo\registry\src\index.crates.io-6f17d22bba15001f\socket2-0.5.9\src\sys\windows.rs:
