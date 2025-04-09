@@ -53,7 +53,4 @@ def extract_url_of_anchor(url):
     except Exception as e:
         return "Error", str(e)
 
-# # Example usage
-# url = "jaipur.manipal.edu"
-# result = extract_url_of_anchor(url)
-# print(f"Classification: {result}")
+

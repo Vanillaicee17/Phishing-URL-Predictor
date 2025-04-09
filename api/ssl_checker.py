@@ -3,7 +3,7 @@ import socket
 import OpenSSL
 
 def check_ssl_issuer(domain):
-    # List of trusted CAs (you can expand this list)
+
     trusted_cas = [
         "DigiCert Inc",
         "Let's Encrypt",
@@ -43,9 +43,7 @@ def check_ssl_issuer(domain):
                 # Extract issuer information
                 issuer = dict(x509.get_issuer().get_components())
                 issuer_cn = issuer.get(b'O', b'Unknown').decode()
-
-                # Print the issuer name
-                
+               
 
                 # Check if the issuer is trusted
                 is_trusted = issuer_cn in trusted_cas

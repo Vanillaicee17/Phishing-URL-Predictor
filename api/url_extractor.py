@@ -1,19 +1,15 @@
 import ssl
 import socket
-from datetime import datetime
+from datetime import datetime, timezone
 from urllib.parse import urlparse
-# import whois
-# import dns.resolver
-# import requests
 from dateutil.relativedelta import relativedelta
-# import time
-# import requests
 from ssl_checker import check_ssl_issuer
 from web_traffic import check_traffic
 from subdomain import analyze_subdomain
 from URL_of_anchor import extract_url_of_anchor
 from request_urls import classify_url
-
+from spamhaus import get_data
+import asyncio
 
 
 
@@ -22,16 +18,14 @@ def extractor(url):
         'Prefix_Suffix': 1,
         'having_Sub_Domain': 1,
         'SSLfinal_State': 1,
-        # 'Domain_registeration_length': -1,
         'Request_URL': 1,
-        # 'URL_of_Anchor': -1,
-        # 'Links_in_tags': -1,
-        # 'SFH': -1,
-        # 'age_of_domain': -1,
-        # 'DNSRecord': -1,
         'web_traffic': 1,
-        # 'Page_Rank': -1,
-        # 'Google_Index': -1,
+        "score" : 0,
+        "human" : 0,
+        "identity" : 0,
+        "infra" : 0,
+        "malware" : 0,
+        "smtp" : 0
     }
 
     try:
@@ -52,7 +46,7 @@ def extractor(url):
         with socket.create_connection((domain, 443)) as sock:
             with context.wrap_socket(sock, server_hostname=domain) as ssock:
                 cert = ssock.getpeercert()
-                now = datetime.utcnow()
+                now = datetime.now(timezone.utc)
 
                 # 3. SSL final state (HTTPS + valid cert + Trusted Issuer)
                 if cert:
@@ -69,22 +63,6 @@ def extractor(url):
                 features['Domain_registeration_length'] = (
                     not_after - not_before).days
 
-        # 5. Domain age using WHOIS
-        # domain_info = whois.whois(domain)
-        # if domain_info.creation_date:
-        #     if isinstance(domain_info.creation_date, list):
-        #         creation_date = domain_info.creation_date[0]
-        #     else:
-        #         creation_date = domain_info.creation_date
-        #     age = relativedelta(now, creation_date)
-        #     features['age_of_domain'] = age.years * 12 + age.months
-
-        # # 6. DNS records check
-        # try:
-        #     dns.resolver.resolve(domain, 'MX')
-        #     features['DNSRecord'] = 1
-        # except dns.resolver.NoAnswer:
-        #     features['DNSRecord'] = -1
 
         features['Request_URL'] = classify_url(url)
 
@@ -98,18 +76,16 @@ def extractor(url):
             features['web_traffic'] = 0
         else:
             features['web_traffic'] = 1
-            
 
-        # 8. PageRank check (example implementation)
-        # features['Page_Rank'] = get_page_rank(domain)
+        spamhaus_data = asyncio.run(get_data(domain))
 
-        # 9. Google Index check
-        # try:
-        #     response = requests.get(
-        #         f"https://www.google.com/search?q=site:{domain}", timeout=5)
-        #     features['Google_Index'] = 1 if domain in response.text else -1
-        # except:
-        #     features['Google_Index'] = -1
+        features['score'] = spamhaus_data["score"]
+        features['human'] = spamhaus_data["human"]
+        features['identity'] = spamhaus_data["identity"]
+        features['infra'] = spamhaus_data["infra"]
+        features['malware'] = spamhaus_data["malware"]
+        features['smtp'] = spamhaus_data["smtp"]
+        
 
         return features
 
@@ -118,3 +94,5 @@ def extractor(url):
         return features
 
 
+url = "google.com"
+print(extractor(url))
